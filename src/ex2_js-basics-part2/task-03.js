@@ -1,16 +1,15 @@
-function getEvenOddNumbers2 (e) {
-	let counterEven = 0;
-	let counterOdd = 0;
-	let counterZero = 0;
-	
-	for (let i=0; i<e.length; i++){
-		if (e[i] === 0) {
+function getEvenOddNumbers (arr) {
+	let counterEven = 0, 
+		counterOdd = 0, 
+		counterZero = 0;
+	for (let i=0; i<arr.length; i++){
+		if (arr[i] === 0) {
 			counterZero++
 		}
-		else if (e[i]%2 === 0) {
+		else if (arr[i]%2 === 0 && arr[i] !== null) {
 			counterEven++;
 		}
-		else if (e[i]%2 === 1) {
+		else if (arr[i]%2 === 1) {
 			counterOdd++;
 		}
 	}

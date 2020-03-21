@@ -1,8 +1,8 @@
-function cutAnArray (e) {
-	for (let i=0; i<e.length; i++){
-		console.log((i+1) + ' = ' + e[i])
+function getElementsFromArray (el) {
+	for (let i=0; i<el.length; i++){
+		console.log((i+1) + ' = ' + el[i])
 	}
-	console.log('array length = ' + e.length)
+	console.log('array length = ' + el.length)
 }
 
-module.exports = cutAnArray;
+module.exports = getElementsFromArray;
