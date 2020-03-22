@@ -1,0 +1,14 @@
+.frame {
+	width: 600px;
+	height: 300px;
+	margin: 15px;
+}
+.firstFrame {
+	border: 2px solid black;
+}
+.secondFrame{
+	outline: 3px dashed black;
+}
+.thirdFrame {
+	box-shadow: 0 0 0 4px black;
+}

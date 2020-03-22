@@ -1,0 +1,53 @@
+body{
+	font-size: 10px;
+}
+.main{
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #6e6e6e;
+	color: white;
+	font-family: sans-serif;
+}
+.circle{
+	list-style-type: circle;
+	}
+.square{
+	list-style-type: square;
+	}
+ol{
+	width: 650px;
+	color: #a1e3c3;
+	background-color: #525252;
+}
+h2{
+	font-family: 'Bebas', arial;
+	font-size: 5em;
+	text-align: center;
+	color: orange;
+	text-decoration: underline;
+}
+img{
+	width: 290px;
+}
+img:first-of-type{
+	margin-left: 10px;
+}
+h3, h4 {
+	font-weight: 900;
+	font-variant: small-caps;
+	letter-spacing: 3px;
+}
+h3{
+	font-size: 2.4em;
+}
+h4{
+	font-size: 2em;
+}
+table{
+	font-size: 300%;
+	border: 1px solid black;
+}
+.uppercase{
+	text-transform: uppercase;
+}
