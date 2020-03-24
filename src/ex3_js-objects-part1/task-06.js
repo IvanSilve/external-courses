@@ -1,4 +1,4 @@
-function deepCloneObject2 (obj) {
+function cloneObject (obj) {
 	let clonedObject = {}
 	if(Array.isArray(obj)){
 		clonedObject = []
@@ -10,9 +10,9 @@ function deepCloneObject2 (obj) {
 	}
 	for (let key in clonedObject){
 		if ((typeof(clonedObject[key]) === 'object' || typeof(clonedObject[key]) === 'function') && clonedObject.hasOwnProperty(key)){
-			clonedObject[key] = deepCloneObject2(clonedObject[key]); 
+			clonedObject[key] = cloneObject(clonedObject[key]); 
 		}
 	}
 	return clonedObject;
 }
-module.exports = deepCloneObject2; 
+module.exports = cloneObject; 
