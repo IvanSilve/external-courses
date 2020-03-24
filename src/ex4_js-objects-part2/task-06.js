@@ -1,18 +1,18 @@
 function everyFirstLetterToUpperCase (str) {
-	let everyWordArr = str.split(" ");
-	for (let i = 0; i<everyWordArr.length; i++){
-		everyLetter = everyWordArr[i].split('');
-		if (everyLetter[0] !== everyLetter[0].toUpperCase()){
-		everyLetter[0] = String.fromCharCode(everyLetter[0].charCodeAt(0) - 32);
+	let words = str.split(" ");
+	for (let i = 0; i<words.length; i++){
+		let letters = words[i].split('');
+		if (letters[0] !== letters[0].toUpperCase()){
+		letters[0] = String.fromCharCode(letters[0].charCodeAt(0) - 32);
 		}
-		if (i<everyWordArr.length-1){
-		everyWordArr[i] = everyLetter.join('') + " ";
+		if (i<words.length-1){
+		words[i] = letters.join('') + " ";
 		}
 		else {
-			everyWordArr[i] = everyLetter.join('');
+			words[i] = letters.join('');
 		}
 	}	
-	return everyWordArr.join('');
+	return words.join('');
 }
 
 module.exports = everyFirstLetterToUpperCase;

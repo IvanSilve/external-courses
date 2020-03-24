@@ -1,6 +1,4 @@
-function seachStringinString (str, value) {
+function hasSubstring (str, value) {
 	return str.includes(value);
 }
-
-
-module.exports = seachStringinString;
+module.exports = hasSubstring;

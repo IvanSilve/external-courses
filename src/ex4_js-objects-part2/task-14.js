@@ -1,8 +1,8 @@
-function getRundomFromMinToMax (min, max) {
+function getRundom (min, max) {
 	let result = Math.round(Math.random()*max);
 	if (result < min){
 		result +=min;
 	}
 	return result; 
 }
-module.exports = getRundomFromMinToMax;
+module.exports = getRundom;

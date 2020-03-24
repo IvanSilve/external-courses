@@ -1,4 +1,4 @@
-function getNumberOfCharReiteration (str) {
+function getReiterations (str) {
 	let strArr = str.split("");
 	let done = [];
 	for (let i = 0; i<strArr.length; i++){
@@ -14,4 +14,4 @@ function getNumberOfCharReiteration (str) {
 		}
 	}
 }
-module.exports = getNumberOfCharReiteration;
+module.exports = getReiterations;
