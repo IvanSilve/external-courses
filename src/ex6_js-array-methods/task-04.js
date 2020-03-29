@@ -1,13 +1,12 @@
-function filterAnalog (array, callback) {
+function filterArray (array, callback) {
 	let newArr = [];
-	let item = undefined;
-		for (let i=0; i<array.length; i++){
-			item = array[i];
-			if(callback(item, i, array)) {
-				newArr.push(item);
-			}
+	for (let i=0; i<array.length; i++){
+		let item = array[i];
+		if(callback(item, i, array)) {
+			newArr.push(item);
+		}
 	}
 	return newArr;
-	}
+}
 
-module.exports = filterAnalog;
+module.exports = filterArray;
