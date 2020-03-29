@@ -1,11 +1,8 @@
 function cloneObject (obj) {
-	let clonedObject = {}
-	if(Array.isArray(obj)){
-		clonedObject = []
-	} 
+	let clonedObject = (Array.isArray(obj)) ? [] : {};
 	for (let key in obj){
 		if ({}.hasOwnProperty.call(obj, key)){
-	clonedObject[key] = obj[key];
+			clonedObject[key] = obj[key];
 		}
 	}
 	for (let key in clonedObject){
