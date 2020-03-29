@@ -1,4 +1,4 @@
-function getReiterations (str) {
+function countCharReiterations (str) {
 	let strArr = str.split("");
 	let done = [];
 	for (let i = 0; i<strArr.length; i++){
@@ -7,11 +7,11 @@ function getReiterations (str) {
 			for (let b = i+1; b<strArr.length; b++){
 				if(strArr[i] === strArr[b]){
 					result++;
-					}
 				}
+			}
 			console.log(strArr[i] + ' meets: ' + result + ' times');
 			done.push(strArr[i]);
 		}
 	}
 }
-module.exports = getReiterations;
+module.exports = countCharReiterations;
