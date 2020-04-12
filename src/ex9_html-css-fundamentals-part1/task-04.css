@@ -1,0 +1,52 @@
+.v1_frame  div, .v1_frame {
+    width: 400px;
+    height: 200px;
+}
+.v1_frame{
+    margin: 20px 0 0 20px;
+    position: relative;
+    background-color:  #bfe3d1;
+}
+.v1_frame  div{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background-color: #90cdaf;
+}
+.v1_frame div + div{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background-color: #60b88d;
+}
+.v2_frame{
+    width: 400px;
+    height: 200px;
+    background-color: #60b88d;
+    box-shadow: 10px 10px  #90cdaf, 20px 20px #bfe3d1;
+    margin-bottom: 20px;
+}
+.v3_frame, .v3_frame::after, .v3_frame::before{
+    width: 400px;
+    height: 200px;
+}
+.v3_frame{
+    position: relative;
+    background-color: #60b88d;
+}
+.v3_frame::before, .v3_frame::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+}
+.v3_frame::after{
+    top: 10px;
+    left: 10px;
+    background-color: #90cdaf;
+
+}
+.v3_frame::before{
+    top: 20px;
+    left: 20px;
+    background-color: #bfe3d1;
+}

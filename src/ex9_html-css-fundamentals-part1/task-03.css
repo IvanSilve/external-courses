@@ -1,0 +1,50 @@
+.content{
+    margin: 100px auto 0 auto;
+    max-width: 300px;
+}
+.mainButton {
+    position: relative;
+    width: 262px;
+    height: 72px;
+    background-color: #cbcbcb;
+    border-radius: 14px;
+    border: 2px solid white;
+}
+.mainButton::before{
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: 266px;
+    height: 76px;
+    border: 2px solid #666666;
+    border-radius: 15px;
+}
+ button{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 250px;
+    height: 60px;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #616161;
+    outline: 0;
+    text-transform: uppercase;
+    color: #555555;
+    background: linear-gradient(#e0e0e0, #adadad);
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px white;
+}
+button::before{
+    content:"\2605";
+    margin-right: 12px;
+}
+button::after{
+    content:"\2605";
+    margin-left: 12px;
+}
+button:hover{
+    cursor: pointer;
+}
