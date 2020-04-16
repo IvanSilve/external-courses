@@ -1,0 +1,98 @@
+body{
+    overflow: hidden;
+}
+.slider{
+    width: 70vw;
+    display: flex;
+    margin-top: 5%;
+    margin-left: 15%;
+    position: relative;
+    overflow: hidden;
+}
+.slider__item{
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 600px;
+    box-shadow: 1px 1px 5px dimgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.slider__image{
+    max-width: 100%;
+}
+.slider__btn-previous, .slider__btn-next{
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+    top: calc(50% - 50px);
+    z-index: 2;
+}
+.slider__btn-previous{
+    left: 5%;
+}
+.slider__btn-previous:hover, .slider__btn-next:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: rgba(80,80,80,0.7);
+    cursor: pointer;
+}
+.slider__btn-previous:hover:before, .slider__btn-previous:hover:after, .slider__btn-next:hover:before, .slider__btn-next:hover:after{
+    background-color: rgba(80,80,80,0.7);
+}
+.slider__btn-next{
+    right: 5%;
+}
+.slider__btn-previous:before, .slider__btn-previous:after, .slider__btn-next:before, .slider__btn-next:after{
+    content: '';
+    position: absolute;
+    left: 12px;
+    width: 20px;
+    height: 1px;
+    background-color: rgba(255,255,255, 0.7);
+}
+.slider__btn-previous:before{
+    top: 16px;
+    transform: rotate(-45deg);
+}
+.slider__btn-previous:after{
+    top: 30px;
+    transform: rotate(45deg);
+}
+.slider__btn-next:before{
+    left: 16px;
+    top: 30px;
+    transform: rotate(-45deg);
+}
+.slider__btn-next:after{
+    left: 16px;
+    top: 16px;
+    transform: rotate(45deg);
+}
+.previous{
+    position: absolute;
+    left: -70vw;
+}
+.active{
+    z-index: 1;
+}
+.next{
+    position: absolute;
+    left: 70vw;
+}
+.toActive{
+    animation: toActive 0.4s ease-in-out;
+    z-index: 3;
+
+}
+@keyframes toActive {
+    to{
+        position: absolute;
+        left: 0;
+    }
+}
