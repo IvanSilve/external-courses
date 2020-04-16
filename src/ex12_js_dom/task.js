@@ -37,6 +37,7 @@ const Slider = {
         nextSection.append(nextImg);
     },
     next: function (){
+        nextBtn.disabled = true;
         let nextItem = document.getElementsByClassName('next')[0];
         nextItem.classList.add('toActive');
         setTimeout(function () {
@@ -60,9 +61,11 @@ const Slider = {
 
             Slider.slider.append(nextSection);
             nextSection.append(nextImg);
+            nextBtn.disabled = false;
         }, 350);
     },
     previous: function (){
+        previousBtn.disabled = true;
         let previousItem = document.getElementsByClassName('previous')[0];
         previousItem.classList.add('toActive');
         setTimeout(function () {
@@ -86,6 +89,7 @@ const Slider = {
 
             Slider.slider.append(previousSection);
             previousSection.append(previousImg);
+            previousBtn.disabled = false;
         }, 350);
     },
     checkActiveSlide: function () {
@@ -98,7 +102,6 @@ const Slider = {
     }
 };
 Slider.createSlides(['asset/img1.jpg','asset/img-big.jpg','asset/img2.jpg','asset/img3.jpg','asset/img4.jpg','asset/img5.jpg','asset/img6.jpg','asset/img7.jpg']);
-
 
 let previousBtn = document.getElementsByClassName('slider__btn-previous')[0];
 let nextBtn = document.getElementsByClassName('slider__btn-next')[0];
