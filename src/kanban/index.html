@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="common.blocks/buttons/create-list/create-list.css">
     <link rel="stylesheet" href="common.blocks/buttons/user-menu-btn/user-menu-btn.css">
     <link rel="stylesheet" href="common.blocks/header/header-buttons.css">
+    <link rel="stylesheet" href="common.blocks/user-menu/user-menu.css">
 </head>
 <body>
     <header class="header">
@@ -20,10 +21,10 @@
                 <button class="create-list__button">Create new list</button>
                 <div class="create-list__icon"></div>
             </div>
-            <button class="user-menu-btn">&gt;</button>
+            <button class="user-menu-btn user-menu-btn--closed">&gt;</button>
         </div>
     </header>
-    <main>
+    <main class="main">
         <div class="indent"></div>
         <div class="list list--margin">
             <div class="list__name">Backlog</div>
@@ -77,5 +78,6 @@
         </div>
         <div class="footer__author&Year">Kanban board by &lt;NAME&gt;, &lt;YEAR&gt;</div>
     </footer>
+    <script src="common.blocks/user-menu/user-menu.js"></script>
 </body>
 </html>
