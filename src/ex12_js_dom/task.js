@@ -1,3 +1,17 @@
+function throttle (func, limit){
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(function (){
+                inThrottle = false
+            }, limit)
+        }
+    }
+}
 const Slider = {
     activeSlide: 0,
     slider: document.getElementsByClassName('slider')[0],
@@ -10,34 +24,26 @@ const Slider = {
 
         let section = document.createElement('section');
         section.classList.add('slider__item', 'active');
-        let img = document.createElement('img');
-        img.classList.add('slider__image');
-        img.setAttribute('src', images[Slider.activeSlide]);
-        img.setAttribute('alt', `slider ${Slider.activeSlide+1}`);
+        section.style.background = `url(${images[Slider.activeSlide]}) no-repeat center`;
+        section.style.backgroundSize = 'cover';
 
         Slider.slider.append(section);
-        section.append(img);
 
         let previousSection = document.createElement('section');
         previousSection.classList.add('slider__item', 'previous');
-        let previousImg = document.createElement('img');
-        previousImg.setAttribute('src', images[previousSlide]);
-        previousImg.setAttribute('alt', `slider ${previousSlide}`);
+        previousSection.style.background = `url(${images[previousSlide]}) no-repeat center`;
+        previousSection.style.backgroundSize = 'cover';
 
         Slider.slider.append(previousSection);
-        previousSection.append(previousImg);
 
         let nextSection = document.createElement ('section');
         nextSection.classList.add('slider__item', 'next');
-        let nextImg = document.createElement('img');
-        nextImg.setAttribute('src', images[nextSlide]);
-        nextImg.setAttribute('alt', `slider ${nextSlide}`);
+        nextSection.style.background = `url(${images[nextSlide]}) no-repeat center`;
+        nextSection.style.backgroundSize = 'cover';
 
         Slider.slider.append(nextSection);
-        nextSection.append(nextImg);
     },
-    next: function (){
-        nextBtn.disabled = true;
+    toNext: throttle(function (){
         let nextItem = document.getElementsByClassName('next')[0];
         nextItem.classList.add('toActive');
         setTimeout(function () {
@@ -55,17 +61,13 @@ const Slider = {
 
             let nextSection = document.createElement ('section');
             nextSection.classList.add('slider__item', 'next');
-            let nextImg = document.createElement('img');
-            nextImg.setAttribute('src', Slider.images[nextSlide]);
-            nextImg.setAttribute('alt', `slider ${nextSlide}`);
+            nextSection.style.background = `url(${Slider.images[nextSlide]}) no-repeat center`;
+            nextSection.style.backgroundSize = 'cover';
 
             Slider.slider.append(nextSection);
-            nextSection.append(nextImg);
-            nextBtn.disabled = false;
         }, 350);
-    },
-    previous: function (){
-        previousBtn.disabled = true;
+    }, 400),
+    toPrevious: throttle(function (){
         let previousItem = document.getElementsByClassName('previous')[0];
         previousItem.classList.add('toActive');
         setTimeout(function () {
@@ -83,15 +85,12 @@ const Slider = {
 
             let previousSection = document.createElement('section');
             previousSection.classList.add('slider__item', 'previous');
-            let previousImg = document.createElement('img');
-            previousImg.setAttribute('src', Slider.images[previousSlide]);
-            previousImg.setAttribute('alt', `slider ${previousSlide}`);
+            previousSection.style.background = `url(${Slider.images[previousSlide]}) no-repeat center`;
+            previousSection.style.backgroundSize = 'cover';
 
             Slider.slider.append(previousSection);
-            previousSection.append(previousImg);
-            previousBtn.disabled = false;
         }, 350);
-    },
+    }, 400),
     checkActiveSlide: function () {
         if(Slider.activeSlide >= Slider.images.length){
             Slider.activeSlide = 0;
@@ -99,12 +98,13 @@ const Slider = {
         if(Slider.activeSlide < 0){
             Slider.activeSlide = Slider.images.length - 1;
         }
-    }
+    },
 };
-Slider.createSlides(['asset/img1.jpg','asset/img-big.jpg','asset/img2.jpg','asset/img3.jpg','asset/img4.jpg','asset/img5.jpg','asset/img6.jpg','asset/img7.jpg']);
+Slider.createSlides(['asset/img1.jpg','asset/img-big.jpg','asset/img2.jpg','asset/img3.jpg','asset/img4.jpg','asset/img5.jpg','asset/img6.jpg','asset/img7.jpg', "asset/img-small.png"]);
 
 let previousBtn = document.getElementsByClassName('slider__btn-previous')[0];
 let nextBtn = document.getElementsByClassName('slider__btn-next')[0];
 
-previousBtn.onclick = Slider.previous;
-nextBtn.onclick = Slider.next;
+previousBtn.onclick = Slider.toPrevious;
+nextBtn.onclick = Slider.toNext;
+
