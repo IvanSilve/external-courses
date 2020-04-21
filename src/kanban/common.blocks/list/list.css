@@ -1,0 +1,68 @@
+.list{
+    min-width: 282px;
+    max-width: 282px;
+    max-height: calc(100vh - 180px);
+    background-color: #EBECF0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 15px 0 #EBECF0;
+}
+    .list__name{
+        align-self: flex-start;
+        margin: 15px 0 0 12px
+    }
+    .list__menu-btn{
+        align-self: flex-end;
+        margin: -32px 12px 12px 0;
+        border: none;
+        font-size: 28px;
+        background-color: transparent;
+        letter-spacing: -1px;
+        font-family: serif;
+    }
+    .list__item-wrapper{
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .list__item{
+        width: 86%;
+        font-size: 18px;
+        height: fit-content;
+        background-color: #FFFFFF;
+        margin: 0 0 15px 0;
+        padding: 12px 9px;
+        border-radius: 4px;
+    }
+    .list__add-card-btn{
+        border: none;
+        color: #5E6C84;
+        padding-left: 12px;
+        margin: 2px 0 0 14px;
+        position: relative;
+        align-self: flex-start;
+    }
+    .list__add-card-btn:hover{
+        cursor: pointer;
+    }
+        .list__add-card-btn:before, .list__add-card-btn:after{
+            content: '';
+            position: absolute;
+            background-color: #5E6C84;
+            width: 14px;
+            height: 2px;
+            border-radius: 2px;
+            top: 6px;
+            left: -5px;
+        }
+        .list__add-card-btn::after{
+            transform: rotate(90deg);
+        }
+
+.list--margin{
+    margin: 20px 5px 20px  19px;
+}

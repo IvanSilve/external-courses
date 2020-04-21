@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="common.blocks/list/list.css">
+    <link rel="stylesheet" href="common.blocks/footer/footer.css">
+    <link rel="stylesheet" href="common.blocks/header/header.css">
+    <link rel="stylesheet" href="common.blocks/logo/logo.css">
+    <link rel="stylesheet" href="common.blocks/buttons/create-list/create-list.css">
+    <link rel="stylesheet" href="common.blocks/buttons/user-menu-btn/user-menu-btn.css">
+    <link rel="stylesheet" href="common.blocks/header/header-buttons.css">
+    <link rel="stylesheet" href="common.blocks/user-menu/user-menu.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo logo--padding">Awesome Kanban Board</div>
+        <div class="header-buttons">
+            <div class="create-list">
+                <button class="create-list__button">Create new list</button>
+                <div class="create-list__icon"></div>
+            </div>
+            <button class="user-menu-btn user-menu-btn--closed">&gt;</button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="indent"></div>
+        <div class="list list--margin">
+            <div class="list__name">Backlog</div>
+            <button class="list__menu-btn">...</button>
+            <div class="list__item-wrapper">
+                <div class="list__item">Login page - performance issues</div>
+                <div class="list__item">Sprint bugfix</div>
+                <button class="list__add-card-btn">Add card</button>
+            </div>
+        </div>
+        <div class="list list--margin">
+            <div class="list__name">Ready</div>
+            <button class="list__menu-btn">...</button>
+            <div class="list__item-wrapper">
+                <div class="list__item">Shop page - performance issues</div>
+                <div class="list__item">Checkout bugfix</div>
+                <div class="list__item">Shop bug1</div>
+                <div class="list__item">Shop bug2</div>
+                <div class="list__item">Shop bug3</div>
+                <div class="list__item">Shop bug4</div>
+                <div class="list__item">Shop bug5</div>
+                <div class="list__item">Shop bug6</div>
+                <div class="list__item">Shop page - performance issues</div>
+                <div class="list__item">Shop bug7</div>
+                <button class="list__add-card-btn">Add card</button>
+            </div>
+        </div>
+        <div class="list list--margin">
+            <div class="list__name">In Progress</div>
+            <button class="list__menu-btn">...</button>
+            <div class="list__item-wrapper">
+                <div class="list__item">User page - performance issues</div>
+                <div class="list__item">Auth bugfix</div>
+                <button class="list__add-card-btn">Add card</button>
+            </div>
+        </div>
+        <div class="list list--margin">
+            <div class="list__name">Finished</div>
+            <button class="list__menu-btn">...</button>
+            <div class="list__item-wrapper">
+                <div class="list__item">Main page - performance issues</div>
+                <div class="list__item">Main page bugfix</div>
+                <button class="list__add-card-btn">Add card</button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__tasks-monitoring">
+            <div class="tasks-active">Active tasks: &lt;N&gt;</div>
+            <div class="tasks-finished">Finished tasks: &lt;M&gt;</div>
+        </div>
+        <div class="footer__author&Year">Kanban board by &lt;NAME&gt;, &lt;YEAR&gt;</div>
+    </footer>
+    <script src="common.blocks/user-menu/user-menu.js"></script>
+</body>
+</html>
