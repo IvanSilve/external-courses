@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="common.blocks/list/list.css">
-    <link rel="stylesheet" href="common.blocks/footer/footer.css">
-    <link rel="stylesheet" href="common.blocks/header/header.css">
-    <link rel="stylesheet" href="common.blocks/logo/logo.css">
-    <link rel="stylesheet" href="common.blocks/buttons/create-list/create-list.css">
-    <link rel="stylesheet" href="common.blocks/buttons/user-menu-btn/user-menu-btn.css">
-    <link rel="stylesheet" href="common.blocks/header/header-buttons.css">
-    <link rel="stylesheet" href="common.blocks/user-menu/user-menu.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
-        <div class="logo logo--padding">Awesome Kanban Board</div>
+        <div class="logo">Awesome Kanban Board</div>
         <div class="header-buttons">
             <div class="create-list">
                 <button class="create-list__button">Create new list</button>
@@ -33,7 +25,7 @@
         </div>
         <div class="footer__author&Year">Kanban board by &lt;NAME&gt;, &lt;YEAR&gt;</div>
     </footer>
-    <script src="common.blocks/user-menu/user-menu.js"></script>
-    <script src="common.blocks/list/list__addCard.js"></script>
+    <script src="components/user-menu/user-menu.js"></script>
+    <script src="components/list/list__cardLogic.js"></script>
 </body>
 </html>

@@ -7,3 +7,6 @@
     position: relative;
     z-index: 2;
 }
+.logo{
+    padding: 0 0 0 80px;
+}
