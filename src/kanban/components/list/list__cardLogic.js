@@ -1,3 +1,6 @@
+import {checkActiveAndFinishedTasks} from "./list__checkActiveAndFinishedTasks.js";
+import {getHaveNoListsNotified} from "./list__haveNoLists.js"
+
 if (localStorage.getItem('dataMock') === null){
     const dataMock = [
         {
@@ -19,25 +22,25 @@ if (localStorage.getItem('dataMock') === null){
     ];
     localStorage.setItem("dataMock", JSON.stringify(dataMock) );
 }
-const dataMock = JSON.parse( localStorage.getItem('dataMock') );
+
 createLists();
 
-let backlogAddCardBtn = document.getElementsByClassName('list__add-card-btn')[0];
-backlogAddCardBtn.classList.add('list__add-card-btn--active');
-backlogAddCardBtn.onclick = addCardBacklog;
-
-let addCardBtns = document.getElementsByClassName('list__add-card-btn');
-for (let i = 1; i<addCardBtns.length; i++) {
-    addCardBtns[i].onclick = addCard;
-}
+addEventListeners();
 
 checkAddCardBtns();
 
 function createLists() {
+    const dataMock = JSON.parse( localStorage.getItem('dataMock') );
+
+    if (dataMock.length === 0) {
+        getHaveNoListsNotified();
+        return;
+    }
+
     for (let i = 0; i<dataMock.length; i++) {
         let main = document.getElementsByClassName('main')[0];
         let list = document.createElement('div');
-        list.classList.add('list', 'list--margin');
+        list.classList.add('list');
         let listName = document.createElement('div');
         listName.classList.add('list__name');
         listName.innerHTML = `${dataMock[i].title}`;
@@ -64,6 +67,24 @@ function createLists() {
         addCardBtn.innerHTML = 'Add card';
         addCardBtn.id = `${i}`;
         list.append(addCardBtn);
+
+    }
+    checkActiveAndFinishedTasks();
+}
+
+function addEventListeners() {
+    const dataMock = JSON.parse( localStorage.getItem('dataMock') );
+    if(dataMock.length === 0){
+        return;
+    }
+
+    let backlogAddCardBtn = document.getElementsByClassName('list__add-card-btn')[0];
+    backlogAddCardBtn.classList.add('list__add-card-btn--active');
+    backlogAddCardBtn.addEventListener('click', addCardBacklog);
+
+    let addCardBtns = document.getElementsByClassName('list__add-card-btn');
+    for (let i = 1; i<addCardBtns.length; i++) {
+        addCardBtns[i].addEventListener('click', addCard);
     }
 }
 
@@ -97,19 +118,26 @@ function addCardBacklog () {
 
         input.remove();
         backlog.append(li);
+
+        const dataMock = JSON.parse( localStorage.getItem('dataMock') );
         dataMock[0].issues.push({
             name: input.value
         });
 
         localStorage.setItem("dataMock", JSON.stringify(dataMock) );
 
-        addCardBtns[1].classList.remove('list__add-card-btn--disabled');
-        addCardBtns[1].classList.add('list__add-card-btn--active');
-        addCardBtns[1].disabled = false;
+        let addCardBtns = document.getElementsByClassName('list__add-card-btn');
+        if (dataMock.length > 1) {
+            addCardBtns[1].classList.remove('list__add-card-btn--disabled');
+            addCardBtns[1].classList.add('list__add-card-btn--active');
+            addCardBtns[1].disabled = false;
+        }
+        checkActiveAndFinishedTasks();
     }
 }
 
 function addCard() {
+    const dataMock = JSON.parse( localStorage.getItem('dataMock') );
     let select = document.createElement('select');
     select.classList.add('list__item', 'list__item--select');
     this.previousSibling.append(select);
@@ -150,10 +178,14 @@ function addCard() {
 
         localStorage.setItem("dataMock", JSON.stringify(dataMock));
         checkAddCardBtns();
+
+        checkActiveAndFinishedTasks();
     }
 }
 
 function checkAddCardBtns() {
+    const dataMock = JSON.parse( localStorage.getItem('dataMock') );
+    let addCardBtns = document.getElementsByClassName('list__add-card-btn');
     for (let i = 1; i<dataMock.length; i++) {
         if (dataMock[i-1].issues.length === 0) {
             addCardBtns[i].disabled = true;
@@ -166,3 +198,4 @@ function checkAddCardBtns() {
         }
     }
 }
+export {addCardBacklog, addCard, checkAddCardBtns};

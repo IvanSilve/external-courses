@@ -27,6 +27,7 @@
 }
 .user-menu__item:hover{
     background-color: #EBECF0;
+    cursor: pointer;
 }
 .user-menu--close{
     animation: close-menu 0.6s ease-out;

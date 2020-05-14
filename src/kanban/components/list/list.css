@@ -10,10 +10,17 @@
     align-items: center;
     position: relative;
     padding: 15px 12px 15px 12px;
+    overflow: hidden;
 }
     .list__name{
         align-self: flex-start;
         margin: 15px 0 0 12px
+    }
+    .list__name-input{
+        border: none;
+        background-color: inherit;
+        font-size: 18px;
+        width: 206px;
     }
     .list__menu-btn{
         align-self: flex-end;
@@ -24,6 +31,9 @@
         letter-spacing: -1px;
         font-family: serif;
     }
+        .list__menu-btn:hover{
+            cursor: pointer;
+        }
     .list__item-wrapper{
         overflow-y: auto;
         display: flex;
@@ -73,7 +83,3 @@
         .list__add-card-btn::after{
             transform: rotate(90deg);
         }
-
-.list--margin{
-    margin: 20px 5px 20px  19px;
-}
