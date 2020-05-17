@@ -96,7 +96,7 @@ function addCardBacklog () {
     backlog.append(input);
     input.focus();
     input.addEventListener('blur', addTask);
-    input.addEventListener('keyup', addTaskPressEnter);
+    input.addEventListener('keydown', addTaskPressEnter);
 
     function addTaskPressEnter(e) {
         if (e.code === "Enter") {
@@ -105,7 +105,7 @@ function addCardBacklog () {
     }
     function addTask() {
         input.removeEventListener('blur', addTask);
-        input.removeEventListener('keyup', addTaskPressEnter);
+        input.removeEventListener('keydown', addTaskPressEnter);
 
         if (input.value.trim().length === 0){
             input.remove();
